@@ -1,0 +1,33 @@
+service: get-data
+variablesResolutionMode: 20210326
+
+package:
+  patterns:
+    - 'node_modules/**'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  memorySize: 1024
+  apiGateway:
+    apiKeys:
+      - testApiKey
+      - pawelApiKey
+      - tadeoApiKey
+    usagePlan:
+      quota:
+        limit: 5000
+        offset: 2
+        period: MONTH
+      throttle:
+        burstLimit: 200
+        rateLimit: 100
+functions:
+  get-card-data:
+    handler: handler.mtgAggregate
+    events:
+     - http:
+         path: /card
+         method: POST
+         private: true
