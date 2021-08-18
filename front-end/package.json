@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build-vue": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "start": "astro dev",
+    "build": "astro build"
   },
   "dependencies": {
+    "astro": "^0.18.13",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
